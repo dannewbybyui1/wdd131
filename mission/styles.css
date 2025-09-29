@@ -1,5 +1,6 @@
-body {
-    font-family: 'Times New Roman', Times, serif;
+
+    body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial', 'sans-serif';
     font-size: 20px;
     margin: 0;
     padding: 20px;
@@ -53,3 +54,31 @@ body {
     margin: 30px auto 0;
     width: 150px;
 }
+    /* DARK THEME */
+    .dark {
+    background-color: #333;
+    color: white;
+}
+    .dark h2 {
+    color: #79BDEE; /* or any other high-contrast blue from BYUI branding */
+}
+    .container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: white;
+    color: black;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+    .dark .container {
+    background-color: #333;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+    body, .container {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
