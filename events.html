@@ -1,0 +1,74 @@
+<!-- events.html -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events Practice: ToDos</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 2em;
+    }
+        h1 {
+        text-align: center;
+    }
+        section {
+        margin-bottom: 1em;
+    }
+        label {
+        font-weight: bold;
+    }
+        input {
+        padding: 0.4em;
+        width: 180px;
+    }
+        button {
+        padding: 0.4em 1em;
+        margin-left: 5px;
+        cursor: pointer;
+    }
+        .todos {
+        width: 300px;
+        padding: 0;
+        list-style: none;
+    }
+        .todos > li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid #ccc;
+        padding: 0.5em;
+        margin-bottom: 5px;
+        border-radius: 5px;
+        }
+    
+        .todos p {
+        margin: 0;
+    }
+        .todos span {
+        cursor: pointer;
+        font-size: 1.2em;
+        margin-left: 5px;
+    }
+        .strike {
+        text-decoration: line-through;
+        color: gray;
+    }
+    </style>
+    </head>
+    <body>
+    <h1>To-Dos</h1>
+
+    <section>
+    <label for="todo">Enter Task:</label>
+    <input name="todo" id="todo" placeholder="Type a task..." />
+    <button id="submitTask">Enter</button>
+    </section>
+
+    <ul id="todoList" class="todos"></ul>
+
+    <script src="events.js"></script>
+    </body>
+</html>
