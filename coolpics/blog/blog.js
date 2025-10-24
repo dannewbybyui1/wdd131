@@ -1,27 +1,88 @@
 // blog.js
-// Book data for use in future activities
 
+// Book data
 const books = [
     {
-    title: "The Great Gatsby",
-    author: "F. Scott Fitzgerald",
-    published: "1925",
-    reviewDate: "October 23, 2025",
-    cover: "images/gatsby.jpg",
-    altText: "Cover of The Great Gatsby by F. Scott Fitzgerald",
-    description:
-    "A timeless classic exploring themes of wealth, love, and the American Dream through the eyes of Nick Carraway and the mysterious Jay Gatsby."
-    },
-    {
-    title: "To Kill a Mockingbird",
-    author: "Harper Lee",
-    published: "1960",
-    reviewDate: "October 20, 2025",
-    cover: "images/mockingbird.jpg",
-    altText: "Cover of To Kill a Mockingbird by Harper Lee",
-    description:
-    "A powerful story of racial injustice and moral growth in the Deep South, told through the perspective of young Scout Finch."
+        title: "Harry Potter and the Sorcerer's Stone",
+        author: "J. K. Rowling",
+        published: "1998",
+        reviewDate: "September 1, 1998",
+        cover: "images/Harry_Potter.jpg",
+        altText: "Book cover of Harry Potter and the Sorcerer's Stone",
+        description: "Join Harry Potter as he discovers the magical world and his destiny as a wizard. A story filled with adventure, friendship, and courage.",
+        genre: "fantasy",
+        age: "8-12",
+        rating: 5
     }
 ];
 
-// We’ll use this data with JavaScript later in Part II to dynamically display the reviews.
+// Function to display books dynamically
+function displayBooks(bookArray) {
+    const articlesSection = document.querySelector(".articles");
+    articlesSection.innerHTML = ""; // Clear previous content
+
+    bookArray.forEach(book => {
+        const article = document.createElement("article");
+        article.innerHTML = `
+            <div class="article-details">
+                <p class="date">${book.published}</p>
+                <p class="author">${book.author}</p>
+            </div>
+            <div class="article-content">
+                <h2>${book.title}</h2>
+                <img src="${book.cover}" alt="${book.altText}">
+                <p>${book.description}</p>
+            </div>
+        `;
+        articlesSection.appendChild(article);
+    });
+}
+
+// Display all books initially
+displayBooks(books);
+
+// Filter form functionality
+const filterForm = document.getElementById("filter-form");
+filterForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const sortValue = document.getElementById("sort").value;
+    const ageValue = document.getElementById("age").value;
+    const genreValue = document.getElementById("genre").value;
+    const ratingValue = document.getElementById("rating").value;
+
+    let filteredBooks = [...books];
+
+    // Filter by age
+    if (ageValue) filteredBooks = filteredBooks.filter(book => book.age === ageValue);
+
+    // Filter by genre
+    if (genreValue) filteredBooks = filteredBooks.filter(book => book.genre === genreValue);
+
+    // Filter by rating
+    if (ratingValue) filteredBooks = filteredBooks.filter(book => book.rating === parseInt(ratingValue));
+
+    // Sort books
+    if (sortValue === "newest") {
+        filteredBooks.sort((a, b) => b.published - a.published);
+    } else if (sortValue === "oldest") {
+        filteredBooks.sort((a, b) => a.published - b.published);
+    } else if (sortValue === "rating") {
+        filteredBooks.sort((a, b) => b.rating - a.rating);
+    }
+
+    displayBooks(filteredBooks);
+});
+
+// Accessibility-friendly theme toggle
+const toggleBtn = document.getElementById('toggle-theme');
+const themeStatus = document.getElementById('theme-status');
+
+if (toggleBtn && themeStatus) {
+    toggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+        const theme = document.body.classList.contains('dark-theme') ? 'Dark' : 'Light';
+        themeStatus.textContent = `Current theme: ${theme}`;
+    });
+}
+
