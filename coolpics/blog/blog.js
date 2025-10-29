@@ -12,7 +12,19 @@ const books = [
     age: "8-12",
     rating: 5
     },
-]
+    {
+    title: "The Hobbit",
+    author: "J. R. R. Tolkien",
+    published: "1937",
+    reviewDate: "September 21, 1937",
+    cover: "images/Hobbit.webp",
+    altText: "Book cover of The Hobbit by J. R. R. Tolkien",
+    description: "Bilbo Baggins embarks on an unexpected journey to help reclaim a stolen treasure from a dragon.",
+    genre: "fantasy",
+    age: "13-18",
+    rating: 4
+    },
+];
 
 // Function to display books dynamically
 function displayBooks(bookArray) {
