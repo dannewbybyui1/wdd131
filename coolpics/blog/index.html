@@ -10,39 +10,26 @@
     <script src="blog.js" defer></script>
 </head>
 <body>
+    <div class="skiptocontent">
+    <a href="#maincontent">Skip to main content</a>
+    </div>
+
     <header>
     <h1>Book Review Blog</h1>
     <nav>
-        <ul>
+    <ul>
         <li><a href="#">About</a></li>
         <li><a href="#">Archive</a></li>
         <li><a href="#">Search</a></li>
     </ul>
     </nav>
-    </header>
-
-    <div class="skiptocontent">
-    <a href="#maincontent">Skip to main content</a>
-    </div>
+</header>
 
     <main id="maincontent">
-    <section class="articles">
-    <article>
-        <div class="article-details">
-        <p class="date">September 1, 1998</p>
-        <p class="author">J. K. Rowling</p>
-        </div>
-        <div class="article-content">
-        <h2>Harry Potter and the Sorcerer's Stone</h2>
-        <img src="images/Harry_Potter.jpg" alt="Book cover of Harry Potter and the Sorcerer's Stone">
-        <p>
-        Join Harry Potter as he discovers the magical world and his destiny as a wizard.
-        A story filled with adventure, friendship, and courage.
-        </p>
-        </div>
-    </article>
-    </section>
+    <!-- Articles will be dynamically inserted here -->
+    <section class="articles"></section>
 
+    <!-- Filter Section -->
     <aside class="filters" aria-label="Book Filters">
     <h2>Filter Books</h2>
     <form id="filter-form">
@@ -82,6 +69,12 @@
     </form>
     </aside>
 
-    <!-- JavaScript Accessibility Section -->
+    <!-- Accessibility Section -->
     <section id="js-accessibility">
     <h2>JavaScript Accessibility</h2>
+    <button id="toggle-theme">Toggle Theme</button>
+    <p id="theme-status">Current theme: Light</p>
+    </section>
+    </main>
+</body>
+</html>
