@@ -1,0 +1,65 @@
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+    .card-container {
+    display: grid;
+    place-items: center;
+}
+
+    .credit-card-form {
+    display: grid;
+    gap: 1rem;
+    position: relative;
+}
+
+    .card-front, .card-back {
+    width: 320px;
+    height: 200px;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #2b5876, #4e4376);
+    color: white;
+    padding: 20px;
+    display: grid;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+    .card-back {
+    background: linear-gradient(135deg, #4e4376, #2b5876);
+    position: absolute;
+    top: 0;
+    transform: rotateY(180deg);
+    z-index: 0;
+}
+
+    .card-front {
+    z-index: 1;
+}
+
+    button {
+    background-color: #ff8c00;
+    color: white;
+    border: none;
+    padding: 10px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+    button:hover {
+    background-color: #ff7300;
+}
+
+    input {
+    border: none;
+    border-radius: 5px;
+    padding: 8px;
+    font-size: 1rem;
+    outline: none;
+}
