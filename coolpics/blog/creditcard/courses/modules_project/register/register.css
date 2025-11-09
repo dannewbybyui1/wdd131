@@ -1,14 +1,14 @@
-body {
+    body {
     font-family: Arial, sans-serif;
     margin: 20px;
     background-color: #f2f2f2;
 }
 
-h1 {
+    h1 {
     text-align: center;
 }
 
-form {
+    form {
     max-width: 700px;
     margin: 0 auto;
     background-color: #fff;
@@ -17,42 +17,42 @@ form {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-fieldset {
+    fieldset {
     border: 1px solid #ccc;
     padding: 15px;
     margin-bottom: 15px;
 }
 
-label {
+    label {
     display: block;
     margin-top: 10px;
 }
 
-input[type="text"],
-input[type="number"] {
+    input[type="text"],
+    input[type="number"] {
     width: 100%;
     padding: 5px;
     margin-top: 5px;
     box-sizing: border-box;
 }
 
-button {
+    button {
     margin-top: 15px;
     padding: 10px 15px;
     cursor: pointer;
 }
 
-.participants-container {
+    .participants-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
-#addParticipantButton {
+    #addParticipantButton {
     grid-column: 1 / span 2; /* button spans both columns */
 }
 
-#summary {
+    #summary {
     max-width: 700px;
     margin: 20px auto;
     padding: 20px;
