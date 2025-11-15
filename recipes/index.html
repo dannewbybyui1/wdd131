@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYU–Idaho Recipe Site</title>
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="Delicious Recipes">
+    <meta property="og:description" content="A collection of simple, tasty recipes.">
+    <meta property="og:image" content="images/recipe-social.jpg">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <link rel="stylesheet" href="recipes.css">
+</head>
+<body>
+
+    <header>
+    <div class="logo">
+    <img src="images/recipe-social.jpg" alt="Recipe Book Logo">
+    <span></span>
+    </div>
+
+    <form id="search-form">
+    <input type="text" id="search" placeholder="Search recipes..." aria-label="Search recipes">
+    <button type="submit">Search</button>
+    </form>
+</header>
+
+
+    <main>
+    <div id="recipe-list" class="recipes"></div>
+    </main>
+
+    <footer>
+    <p>Recipe data by <a href="#">Sample Data Set</a></p>
+
+    <div class="social">
+    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    </div>
+</footer>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>
