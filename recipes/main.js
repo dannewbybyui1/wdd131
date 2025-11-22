@@ -4,40 +4,74 @@ const list = document.getElementById("recipe-list");
 const form = document.getElementById("search-form");
 const input = document.getElementById("search");
 
-// Render all recipes on load
-displayRecipes(recipes);
+/* ---------------------- RANDOM FUNCTIONS ---------------------- */
 
-function displayRecipes(recipeArray) {
-    list.innerHTML = "";
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * max);
+}
 
-    recipeArray.forEach(recipe => {
-    const card = document.createElement("div");
-    card.classList.add("recipe-card");
+function getRandomListEntry(arr) {
+    return arr[getRandomNumber(arr.length)];
+}
 
-    card.innerHTML = `
+/* ---------------------- TEMPLATE + DISPLAY ---------------------- */
+
+function recipeTemplate(recipe) {
+    return `
+    <div class="recipe-card">
     <img src="${recipe.image}" alt="${recipe.name}">
-        <div class="details">
+    <div class="details">
         <h2>${recipe.name}</h2>
         <p>${recipe.description}</p>
         <div class="rating" aria-label="Rating: ${recipe.rating} out of 5">
-        ${"★".repeat(Math.round(recipe.rating))}
-        ${"☆".repeat(5 - Math.round(recipe.rating))}
+            ${"★".repeat(recipe.rating)}
+            ${"☆".repeat(5 - recipe.rating)}
         </div>
     </div>
+    </div>
     `;
-
-    list.appendChild(card);
-    });
 }
 
-// SEARCH FILTER
-    form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const text = input.value.toLowerCase();
+function displayRecipes(recipeArray) {
+    list.innerHTML = recipeArray.map(recipeTemplate).join("");
+}
 
-    const filtered = recipes.filter(recipe =>
-    recipe.name.toLowerCase().includes(text)
+/* ---------------------- FILTERING ---------------------- */
+
+function filterRecipes(query) {
+    query = query.toLowerCase();
+
+    const filtered = recipes.filter(recipe => {
+    return (
+    recipe.name.toLowerCase().includes(query) ||
+    recipe.description.toLowerCase().includes(query) ||
+    recipe.tags.find(tag => tag.toLowerCase().includes(query)) ||
+    recipe.ingredients.find(ing => ing.toLowerCase().includes(query))
     );
+    });
 
-    displayRecipes(filtered);
+  // Sort alphabetically
+    filtered.sort((a, b) => a.name.localeCompare(b.name));
+
+    return filtered;
+}
+
+/* ---------------------- SEARCH HANDLER ---------------------- */
+
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const text = input.value.toLowerCase();
+    const results = filterRecipes(text);
+
+    displayRecipes(results);
 });
+
+/* ---------------------- INIT: SHOW RANDOM RECIPE ---------------------- */
+
+function init() {
+    const randomRecipe = getRandomListEntry(recipes);
+  displayRecipes([randomRecipe]); // must be array
+}
+
+init();
